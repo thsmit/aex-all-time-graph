@@ -24,13 +24,17 @@ data = pd.read_csv("aex.csv")
 data['Date'] = pd.to_datetime(data['Date']) 
 
 # Figure
-fig, ax = plt.subplots(2,1,figsize=(18, 7))
+fig, ax = plt.subplots(2,1,figsize=(16, 12))
 ax[0].plot(data['Date'], data['Close'], lw=1)
 #ax.xlabel("Time")
 ax[0].set_ylabel("Points")
 ax[1].set_ylabel("Y/Y return [%]")
 fig.suptitle("AEX index (Ex. Div) 3/1/1983 - 24/8/2021", fontsize=16)
 ax[0].margins(0,0.1)
+
+# vertical coloring
+ax[0].axvspan(data['Date'].loc[0], data['Date'].loc[100], alpha=0.5, color='red')
+ax[0].axvspan(data['Date'].loc[100], data['Date'].loc[200], alpha=0.5, color='green')
 
 # Calculate annual and total return
 year_range = max(data['Date']).year-min(data['Date']).year+1 # Number of years
@@ -54,10 +58,13 @@ for i in np.arange(year_range):
 
 return_data['Return'] = ((return_data['Close'] - return_data['Open']) / return_data['Open']) * 100
 return_data['Return'] = np.around(return_data['Return'].astype(np.double), decimals=2)
+total_annual_return = np.around((np.power(((return_data['Open'].iloc[38] - return_data['Open'].iloc[0]) / return_data['Open'].iloc[0])+1.0, 1.0/39.0)-1.0)*100, decimals=2)
+print(total_annual_return)
 print(return_data)
 
 return_data.plot.bar(x='Year', y='Return', color='r', ax=ax[1], legend=False)
-
+ax[1].axhline(y=total_annual_return, color='black', linestyle='-', linewidth=0.8)
+ax[1].annotate("All time annual rate of return: 6.98%", xy=(1.2, 9))
 
 # Calculate dividend reinvested
 
@@ -90,5 +97,5 @@ return_data.plot.bar(x='Year', y='Return', color='r', ax=ax[1], legend=False)
 
 
 # Save graph
-plt.savefig(name, dpi=300)
+#plt.savefig(name, dpi=300)
 plt.show()
