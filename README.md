@@ -2,7 +2,7 @@
 
 # aex-all-time-graph
 
-AEX index started on the 4th of March 1983 (04/03/1983) containing the 25 largest, by market capitalization, traded companies on the Amsterdam stoch exchange. 
+AEX index started on the 4th of March 1983 (04/03/1983) containing the 25 largest, by market capitalization, traded companies on the Amsterdam stock exchange. 
 
 Data: 
 https://stooq.com
