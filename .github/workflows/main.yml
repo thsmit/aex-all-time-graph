@@ -34,11 +34,12 @@ jobs:
           pip install matplotlib
 
       - name: execute py script
-         env: 
-           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
-           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
-         run: python aex-all-time-graph.py
+        env: 
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
+        run: |
+          python aex-all-time-graph.py
           
       # - name: commit files
       #   run: |
