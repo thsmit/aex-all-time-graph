@@ -97,5 +97,5 @@ ax[1].annotate("All time annual rate of return: 6.98%", xy=(1.2, 9))
 
 
 # Save graph
-#plt.savefig(name, dpi=300)
+plt.savefig(name, dpi=300)
 plt.show()
