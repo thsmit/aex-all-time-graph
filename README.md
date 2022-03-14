@@ -1,3 +1,5 @@
+[![update-aex-graph](https://github.com/thsmit/aex-all-time-graph/actions/workflows/main.yml/badge.svg)](https://github.com/thsmit/aex-all-time-graph/actions/workflows/main.yml)
+
 # aex-all-time-graph
 
 AEX index started on the 4th of March 1983 (04/03/1983) containing the 25 largest, by market capitalization, traded companies on the Amsterdam stoch exchange. 
